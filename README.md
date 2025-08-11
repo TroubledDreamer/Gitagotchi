@@ -16,7 +16,8 @@ You can even extend it to track Git commits, store stats, and give your pet a re
 ---
 
 ## 📸 Demo  
-![Uploading image.png…]()
+<img width="932" height="898" alt="image" src="https://github.com/user-attachments/assets/8d579438-6299-468f-8876-91272ba730b8" />
+
 
 
 ---
