@@ -1,4 +1,3 @@
-// PetWindow.java
 import javax.swing.*;
 import java.awt.*;
 
@@ -19,16 +18,14 @@ public class PetWindow extends JFrame {
         setVisible(true);
     }
 
-    /** Provide a base (unscaled) image once. */
     public void setBaseImage(Image image, int baseSizePx) {
         this.baseImage = image;
         if (baseSizePx > 0) this.baseSize = baseSizePx;
         applyScale();
     }
 
-    /** Call when stats-based scale changes. */
     public void setScale(double scale) {
-        this.scale = Math.max(0.5, Math.min(2.0, scale)); // clamp for sanity
+        this.scale = Math.max(0.5, Math.min(2.0, scale)); // clamp
         applyScale();
     }
 
@@ -38,7 +35,6 @@ public class PetWindow extends JFrame {
             Image scaled = baseImage.getScaledInstance(size, size, Image.SCALE_SMOOTH);
             petLabel.setIcon(new ImageIcon(scaled));
         }
-        // Keep window centered on its own center while resizing
         Point p = getLocation();
         int oldW = getWidth();
         int oldH = getHeight();
@@ -48,7 +44,6 @@ public class PetWindow extends JFrame {
         repaint();
     }
 
-    /** Move the pet window to a new top-left screen position. */
     public void moveTo(int x, int y) {
         setLocation(x, y);
     }

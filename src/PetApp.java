@@ -1,11 +1,9 @@
-// PetApp.java
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class PetApp {
     public static void main(String[] args) {
-        // Args: [0] = path to git repo, [1] = optional author filter
         String repo = args.length > 0 ? args[0] : ".";
         String author = args.length > 1 ? args[1] : null;
 
@@ -13,7 +11,6 @@ public class PetApp {
             PetWindow win = new PetWindow();
 
             Image img = new ImageIcon("../resources/milo/5878D816-C4DD-4CEA-84DF-BDC5BDD9EBD7.png").getImage();
-            // Image img = makeCircleSprite(128, new Color(255, 200, 120));
             win.setBaseImage(img, 128);
 
             PetStats stats = new PetStats();
