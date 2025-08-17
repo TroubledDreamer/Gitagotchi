@@ -6,12 +6,14 @@ You can even extend it to track Git commits, store stats, and give your pet a re
 ---
 
 ## ✨ Features
-- 🖥 **Always-on-top transparent window** so your pet sits on your desktop  
-- 🏃 **Smooth wandering** with randomised direction and idle times  
-- 🪂 **Gravity simulation** so your pet falls naturally  
-- 🐇 **Random jumps** for a playful feel  
-- 🔄 **Sprite flipping** so your pet faces its walking direction *(optional)*  
-- 📦 **JSON-based pet stats** for persistence *(planned feature)*
+- 🖥 Always-on-top transparent window so your pet sits on your desktop  
+- 🏃 Smooth wandering with randomised direction and idle times  
+- 🪂 Gravity & bouncing so your pet moves naturally  
+- 🐇 Random jumps for a playful feel  
+- 🔄 Sprite scaling – pet grows/shrinks based on hunger  
+- 🐾 Git-powered hunger system – commits feed your pet and give it energy  
+- 📦 `storage.json` to persist pet stats between runs
+
 
 ---
 
@@ -37,7 +39,11 @@ javac Main.java PetWindow.java Movement.java
 
 ### 3️⃣ Run the Pet
 ```bash
-java Main
+# Example: feeding only your commits
+java -cp src PetApp /path/to/your/repo "your.email@example.com"
+
+# Or count all commits in a repo
+java -cp src PetApp /path/to/your/repo
 ```
 
 ---
@@ -45,11 +51,16 @@ java Main
 ## 📂 Project Structure
 ```
 Gitagotchi/
- ├── Main.java          # Entry point – starts the pet
- ├── PetWindow.java     # Handles the pet window and sprite display
- ├── Movement.java      # Controls movement, gravity, and jumps
- ├── resources/         # Your pet images (PNG sprites)
- └── README.md
+├── src/
+│   ├── PetApp.java        # Entry point – starts the pet
+│   ├── PetWindow.java     # Handles the pet window and sprite scaling
+│   ├── PetController.java # Controls motion, hunger, and energy
+│   ├── PetStats.java      # Tracks fullness and energy
+│   ├── GitFeeder.java     # Pulls commit counts from your repo
+│   └── ...
+├── resources/             # Your pet images (PNG sprites)
+├── storage.json           # Persists hunger & energy stats
+└── README.md
 ```
 
 ---
@@ -63,11 +74,13 @@ Gitagotchi/
 ---
 
 ## 🐾 Roadmap
-- [ ] Save & load pet stats with JSON (hunger, happiness, etc.)  
+- [x] Save & load pet stats with JSON (hunger, energy)  
+- [x] Integrate with Git commits (pet gets fed when you commit!)  
+- [x] Scale sprite size based on hunger  
 - [ ] Animate walking & idle frames  
-- [ ] Integrate with Git commits (pet gets happy when you commit!)  
 - [ ] Add multiple pets on screen  
 - [ ] Allow interactions (feeding, playing, sleeping)
+
 
 ---
 
